@@ -1,0 +1,11 @@
+.container{
+    margin-top: 50px; 
+}
+.card{
+    height: 350px;
+    width: 400px;
+    margin-left: 100px;
+}
+.form-control{
+    width: 300px;
+}

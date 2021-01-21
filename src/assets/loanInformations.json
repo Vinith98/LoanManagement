@@ -1,0 +1,44 @@
+[
+  {
+    "loanNumber": 12345678,
+    "loanAmount": 100000,
+    "loanTerm": 10,
+    "borrowerInformation": {
+      "userFirstName": "varun",
+      "userLastName": "kumar",
+      "mobileNumber": 8888888888
+    },
+    "propertyInformation": {
+      "propertyType": "house",
+      "addressLine1": "4/23,1st street",
+      "addressLine2": "Raja nagar,Porur",
+      "city": "Chennai",
+      "pincode": 600091
+    },
+    "loanStatus": "pending",
+    "loanManagementFees": 10,
+    "originationDate": "07/24/2020",
+    "originationAccount": 2345677
+  },
+  {
+    "loanNumber": 123456789,
+    "loanAmount": 100000,
+    "loanTerm": 12,
+    "borrowerInformation": {
+      "userFirstName": "virat",
+      "userLastName": "kumar",
+      "mobileNumber": 8888888888
+    },
+    "propertyInformation": {
+      "propertyType": "house",
+      "addressLine1": "4/23,1st street",
+      "addressLine2": "Raja nagar,Porur",
+      "city": "Chennai",
+      "pincode": 600091
+    },
+    "loanStatus": "pending",
+    "loanManagementFees": 10,
+    "originationDate": "07/24/2020",
+    "originationAccount": 2345677
+  }
+]

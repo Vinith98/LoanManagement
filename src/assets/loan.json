@@ -1,0 +1,38 @@
+[
+    {
+        "loanAmount": 30000,
+        "loanType": "Bike",
+        "loanTerm": 2,
+        "loanImage": "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bW90b3JiaWtlfGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80"
+    },
+    {
+        "loanAmount": 50000,
+        "loanType": "Personal",
+        "loanTerm": 2,
+        "loanImage": "https://images.financialexpress.com/2020/04/paisabazaar-1200.jpg?w=1200&h=800&imflag=true"
+    },
+    {
+        "loanAmount": 300000,
+        "loanType": "Home",
+        "loanTerm": 2,
+        "loanImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    },
+    {
+        "loanAmount": 50000,
+        "loanType": "Car",
+        "loanTerm": 2,
+        "loanImage": "https://specials-images.forbesimg.com/imageserve/5d3703e2f1176b00089761a6/960x0.jpg?cropX1=836&cropX2=5396&cropY1=799&cropY2=3364"
+    },
+    {
+        "loanAmount": 200000,
+        "loanType": "Educational",
+        "loanTerm": 2,
+        "loanImage": "https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-1024x640.jpeg"
+    },
+    {
+        "loanAmount": 300000,
+        "loanType": "Business",
+        "loanTerm": 2,
+        "loanImage": "https://qph.fs.quoracdn.net/main-qimg-fb01a025ab2cba5350d320a6c8c9d5a2"
+    }
+]

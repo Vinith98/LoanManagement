@@ -1,0 +1,182 @@
+<div *ngIf="loanEdited">Loan Details Edited Successfully
+    <div>The Edited Details are:{{editLoanDetail.value|json}}</div>
+</div>
+<div class="container my-5" *ngIf="!loanEdited">
+    <h3>EDIT LOAN DETAILS</h3>
+    <form [formGroup]="editLoanDetail" (submit)="editLoanDetails(editLoanDetail)">
+
+        <div class="form-row">
+            <div class="col-lg-4">
+                <label for="loanType">LOAN NUMBER:
+                    <input type="text" class="form-control" name="loanNumber" id="loanNumber"
+                        formControlName="loanNumber">
+                </label>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('loanNumber').touched && editLoanDetail.get('loanNumber').hasError('required')">
+                    *Loan Number required</div>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('loanNumber').touched && (editLoanDetail.get('loanNumber').hasError('pattern'))">
+                    *Loan Number must contain only numbers</div>
+            </div>
+            <div class="col-lg-4">
+                <label for="loanAmount">LOAN AMOUNT(in Rs.):
+                    <input type="text" class="form-control" name="loanAmount" id="loanAmount"
+                        formControlName="loanAmount">
+                </label>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('loanAmount').touched && editLoanDetail.get('loanAmount').hasError('required')">
+                    *Loan Amount required</div>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('loanAmount').touched && (editLoanDetail.get('loanAmount').hasError('pattern'))">
+                    *Loan Amount must contain only numbers</div>
+            </div>
+            <div class="col-lg-4">
+                <label for="loanTerm"> LOAN TERM(in months):
+                    <input type="text" class="form-control" name="loanTerm" id="loanTerm" formControlName="loanTerm">
+                </label>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('loanTerm').touched && editLoanDetail.get('loanTerm').hasError('required')">
+                    *Loan Term required</div>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('loanTerm').touched && (editLoanDetail.get('loanTerm').hasError('pattern'))">
+                    *Loan Term must contain only numbers</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-lg-4">
+                <label for="loanType">LOAN MANAGEMENT FEES(in percentage):
+                    <input type="text" class="form-control" name="loanManagementFees" id="loanManagementFees"
+                        formControlName="loanManagementFees">
+                </label>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('loanManagementFees').touched && editLoanDetail.get('loanManagementFees').hasError('required')">
+                    *Loan Management Fees required</div>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('loanManagementFees').touched && (editLoanDetail.get('loanManagementFees').hasError('pattern'))">
+                    *Loan Management Fees must contain only numbers</div>
+            </div>
+            <div class="col-lg-4">
+                <label for="loanAmount">ORIGINATION ACCOUNT:
+                    <input type="text" class="form-control" name="originationAccount" id="originationAccount"
+                        formControlName="originationAccount">
+                </label>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('originationAccount').touched && editLoanDetail.get('originationAccount').hasError('required')">
+                    *Origination Account required</div>
+                <div class="text-danger"
+                    *ngIf="editLoanDetail.get('originationAccount').touched && (editLoanDetail.get('originationAccount').hasError('pattern'))">
+                    *Origination Account must contain only numbers</div>
+            </div>
+            <div class="col-lg-4">
+                <label for="loanAmount">ORIGINATION DATE:
+                    <input type="date" class="form-control" name="originationDate" id="originationDate"
+                        formControlName="originationDate">
+                </label>
+            </div>
+            <div class="col-lg-4">
+                <label for="loanStatus"> LOAN STATUS
+                    <select formControlName="loanStatus" name="loanStatus">
+                        <option value="">*Select pending or approved</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="formGroup" formGroupName="borrowerInformation">
+            <label>
+                <h6>BORROWER DETAILS:</h6>
+            </label>
+            <div class="form-row">
+
+                <div class="col-lg-4">
+                    <label>USER FIRSTNAME:
+                        <input type="text" name="firstName" id="firstName" class="form-control"
+                            formControlName="firstName" required>
+                    </label>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('borrowerInformation.firstName').touched && editLoanDetail.get('borrowerInformation.firstName').hasError('required')">
+                        *FirstName required</div>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('borrowerInformation.firstName').touched && (editLoanDetail.get('borrowerInformation.firstName').hasError('pattern'))">
+                        *First Name must contain only alphabets</div>
+                </div>
+                <div class="col-lg-4">
+                    <label>USER LASTNAME:
+                        <input type="text" name="lastName" id="lastName" class="form-control" formControlName="lastName"
+                            required>
+                    </label>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('borrowerInformation.lastName').touched && editLoanDetail.get('borrowerInformation.lastName').hasError('required')">
+                        *Last Name Required</div>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('borrowerInformation.lastName').touched && (editLoanDetail.get('borrowerInformation.lastName').hasError('pattern'))">
+                        *Last Name must contain only alphabets</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div>
+                    <label>MOBILE NUMBER:
+                        <input type="text" name="mobileNumber" id="mobileNumber" class="form-control"
+                            formControlName="mobileNumber" required>
+                    </label>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('borrowerInformation.mobileNumber').touched && editLoanDetail.get('borrowerInformation.mobileNumber').hasError('required')">
+                        *Mobile Number Required</div>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('borrowerInformation.mobileNumber').touched && (editLoanDetail.get('borrowerInformation.mobileNumber').hasError('pattern'))">
+                        *Mobile Number must be of numbers only</div>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('borrowerInformation.mobileNumber').touched && (editLoanDetail.get('borrowerInformation.mobileNumber').hasError('maxlength')||editLoanDetail.get('borrowerInformation.mobileNumber').hasError('minlength'))">
+                        *Mobile Number must be of 10 digits</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" formGroupName="propertyAddress">
+            <label>
+                <h6>PROPERTY DETAILS:</h6>
+            </label>
+            <div class="form-row">
+
+
+                <div class="col-lg-4"> <label> ADDRESSLINE1: <input type="text" name="addressLine1" id="addressLine1"
+                            class="form-control" formControlName="addressLine1" required></label>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('propertyAddress.addressLine1').touched && editLoanDetail.get('propertyAddress.addressLine1').hasError('required')">
+                        *AddressLine1 Required</div>
+                </div>
+                <div class="col-lg-4"><label> ADDRESSLINE2: <input type="text" name="addressLine2" id="addressLine2"
+                            class="form-control" formControlName="addressLine2" required></label>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('propertyAddress.addressLine2').touched && editLoanDetail.get('propertyAddress.addressLine2').hasError('required')">
+                        *AddressLine2 Required</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-lg-4">
+                    <label> CITY: <input type="text" name="city" id="city" class="form-control" formControlName="city"
+                            required></label>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('propertyAddress.city').touched && editLoanDetail.get('propertyAddress.city').hasError('required')">
+                        *City Required</div>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('propertyAddress.city').touched && (editLoanDetail.get('propertyAddress.city').hasError('pattern'))">
+                        *City Name must contain only letters</div>
+                </div>
+                <div class="col-lg-4"><label> PINCODE: <input type="text" name="pincode" id="pincode"
+                            class="form-control" formControlName="pincode" required></label>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('propertyAddress.pincode').touched && editLoanDetail.get('propertyAddress.pincode').hasError('required')">
+                        *Pincode Required</div>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('propertyAddress.pincode').touched && (editLoanDetail.get('propertyAddress.pincode').hasError('maxlength')||editLoanDetail.get('propertyAddress.pincode').hasError('minlength'))">
+                        *Pincode must be of 6 digits</div>
+                    <div class="text-danger"
+                        *ngIf="editLoanDetail.get('propertyAddress.pincode').touched && (editLoanDetail.get('propertyAddress.pincode').hasError('pattern'))">
+                        *Pincode must be of numbers only</div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success" [disabled]="!editLoanDetail.valid">Submit</button>
+    </form>
+</div>

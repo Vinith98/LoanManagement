@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>LOGIN</h3>
+        </div>
+        <div class="card-body">
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                <div class="form-row">
+                    <label>USERID:
+                        <input type="text" class="form-control" name="userId" placeholder="Enter ID" ngModel
+                            #userId="ngModel" required>
+                    </label>
+                </div>
+                <div *ngIf="userId.touched && !userId.valid" class="text-danger">
+                    *User Id Required
+                </div>
+                <div class="form-row">
+                    <label>PASSWORD:
+                        <input type="password" class="form-control" name="password" placeholder="Enter password" ngModel
+                            #password="ngModel" required>
+                    </label>
+                </div>
+                <div *ngIf="password.touched && !password.valid" class="text-danger">
+                    *Password Required
+                </div>
+                <!-- <div *ngIf="!loggedIn" class="text-danger">
+                    *Credentials are Incorrect!!Enter Valid Credentials
+                </div> -->
+                <div class="card-footer">
+                    <button class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

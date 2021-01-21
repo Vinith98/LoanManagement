@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <label>FirstName
+                <input type="text" class="form-control" placeholder="Enter First Name" [(ngModel)]="searchByFirstName">
+                <button class="btn btn-success" (click)="searchLoanByFirstName()">Search</button>
+            </label>
+        </div>
+        <div class="col">
+            <label>LastName
+                <input type="text" class="form-control" placeholder="Enter Last Name" [(ngModel)]="searchByLastName">
+                <button class="btn btn-success" (click)="searchLoanByLastName()">Search</button>
+            </label>
+
+        </div>
+
+
+        <div class="col">
+            <label>Loan Number
+                <input type="text" class="form-control" placeholder="Enter Loan Number"
+                    [(ngModel)]="searchByLoanNumber">
+                <button class="btn btn-success" (click)="searchLoanByLoanNumber()">Search</button>
+            </label>
+        </div>
+    </div>
+    <div *ngIf="!loanInformations">Please enter the valid details and search to get the loan Information!!</div>
+    <div class="container" *ngIf="loanInformations">
+        <div *ngFor="let loanInformation of loanInformations">
+            <div class="card border-dark">
+                <div class="card-header">
+                    <h4>LOAN DETAILS:</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-8">LOAN NUMBER:</div>
+                        <div class="col-lg-4">{{loanInformation.loanNumber}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">LOAN AMOUNT:</div>
+                        <div class="col-lg-4">Rs.{{loanInformation.loanAmount}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">LOAN TERM:</div>
+                        <div class="col-lg-4">{{loanInformation.loanTerm}} months</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">BORROWER INFORMATION:</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">FIRST NAME:</div>
+                        <div class="col-lg-4">{{loanInformation.borrowerInformation.userFirstName}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">LAST NAME:</div>
+                        <div class="col-lg-4">{{loanInformation.borrowerInformation.userLastName}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">MOBILE NUMBER:</div>
+                        <div class="col-lg-4">{{loanInformation.borrowerInformation.mobileNumber}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">PROPERTY INFORMATION:</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">PROPERTY TYPE:</div>
+                        <div class="col-lg-4">{{loanInformation.propertyInformation.propertyType}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">ADDRESS:</div>
+                    </div>
+                    {{loanInformation.propertyInformation.addressLine1}}
+                    {{loanInformation.propertyInformation.addressLine2}}
+                    {{loanInformation.propertyInformation.city}}
+                    {{loanInformation.propertyInformation.pincode}}
+
+
+                    <div class="row">
+                        <div class="col-lg-8">LOAN STATUS:</div>
+                        <div class="col-lg-4">{{loanInformation.loanStatus}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">MANAGEMENT FEES:</div>
+                        <div class="col-lg-4">{{loanInformation.loanManagementFees}}%</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">ORIGINATION DATE:</div>
+                        <div class="col-lg-4">{{loanInformation.originationDate }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">ORIGINATION ACCOUNT NUMBER:</div>
+                        <div class="col-lg-4">{{loanInformation.originationAccount}}</div>
+                    </div>
+                </div>
+                <div class="card-footer"><button (click)="editLoan(loanInformation.loanNumber)" class="btn btn-success"
+                        *ngIf="role=='admin'">Edit</button> </div>
+            </div>
+        </div>
+    </div>

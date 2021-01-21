@@ -1,0 +1,28 @@
+<div class="container my-4">
+    <div class="row" *ngIf="role=='admin'">
+        <badge class="badge-danger"><a routerLink='/addNewLoan'>Add New Loan</a></badge>
+    </div>
+    <div class="row"><a [routerLink]="['/loanDetails',role]">To Search Loan Details Click Here</a>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 mx-4 my-5" *ngFor="let loan of loans">
+            <div class="card">
+                <div class="card-top">
+                    <img src="{{loan.loanImage}}" alt="Image">
+                </div>
+                <div class="card-row">
+                    <span>LoanType</span>
+                    <span class="badge badge-primary">{{loan.loanType}}</span>
+                </div>
+                <div class="card-row">
+                    <span>Amount</span>
+                    <span class="badge badge-success">Rs.{{loan.loanAmount}}-/-</span>
+                </div>
+                <div class="card-row">
+                    <span>LoanTerm</span>
+                    <span class="badge badge-danger">{{loan.loanTerm}}months</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
